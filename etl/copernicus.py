@@ -80,15 +80,16 @@ def create_request(service_id, product_id, date, motu, directory_to, name, user,
     year = str_date[:4]
     month = str_date[5:7]
     last_month = f'{int(month) - 1:02}' 
+
     
     return {"service_id": service_id,
             "product_id": product_id,
             "date_min": datetime.strptime(f'{year}-{last_month}-01', '%Y-%m-%d').date(),
             "date_max": date.date(),
-            "longitude_min": -116.,
-            "longitude_max": -113.,
-            "latitude_min": 26.,
-            "latitude_max": 29.,
+            "longitude_min": -117.,
+            "longitude_max": -112.5,
+            "latitude_min": 28.,
+            "latitude_max": 32.,
             "variable": [],
             "motu": motu,
             "out_dir": directory_to,

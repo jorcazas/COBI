@@ -129,7 +129,7 @@ def download_raw(variable: str, directory_to: str, resolution: str,
 
     
 
-def process_data(variable: str, directory_from: str, directory_to: str, coordinates: List[float] = [-116, -113, 26, 29]) -> None:
+def process_data(variable: str, directory_from: str, directory_to: str, coordinates: List[float] = None) -> None:
 
     """
     Performs data cleansing on NetCDF files for a given variable obtained from a directory directory_from. 
@@ -146,6 +146,9 @@ def process_data(variable: str, directory_from: str, directory_to: str, coordina
         This function does not return any value. It only saves the cleaned files in a new directory.
 
     """
+
+    if coordinates is None:
+        coordinates = [-117, -112.5, 28, 32]
         
     directory_path = os.path.join(directory_to, variable)
     
