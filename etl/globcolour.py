@@ -36,7 +36,7 @@ def read_credentials() -> List[str]:
 
     """
     config = configparser.ConfigParser()
-    config.read('config/config.ini')
+    config.read('C:/Users/javi2/Documents/COBI/COBI/etl/config/config.ini')
 
     username = config.get('api_keys', 'user_gc')
     password = config.get('api_keys', 'password_gc')

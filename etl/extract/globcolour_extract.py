@@ -63,10 +63,12 @@ def download_files_with_missing_dates(dates_to_download: set, directory: str, va
 
 def main():
 
-    variable_dict = read_variable_dict('input/variable_dict_globcolour.csv')
+    
+    variable_dict = read_variable_dict('C:/Users/javi2/Documents/COBI/COBI/etl/input/variable_dict.csv')
     credentials = read_credentials()
     start_date = date(2017, 1, 1)
-    end_date = date(datetime.now().year, datetime.now().month, datetime.now().day-1)
+    # end_date = date(datetime.now().year, datetime.now().month, datetime.now().day-1)
+    end_date = date(2023, 1, 1)
     dates_to_download = set()
     for single_date in daterange(start_date, end_date):
         dates_to_download.add(single_date.strftime("%Y")+single_date.strftime("%m")+single_date.strftime("%d"))
