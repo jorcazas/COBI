@@ -170,3 +170,6 @@ cython_debug/
 *.zip
 *.pdf
 *.docx
+
+# Visual Studio Code
+.vscode/
