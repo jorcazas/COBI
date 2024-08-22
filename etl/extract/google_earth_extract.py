@@ -4,7 +4,7 @@ import ee
 ee.Initialize()
 
 # Example:
-collection = 'NASA/OCEANDATA/MODIS-Aqua/L3SMI'
+collection = ''
 
 # Define the region of interest (ROI)
 roi = ee.Geometry.Rectangle([-180, -90, 180, 90])
