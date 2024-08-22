@@ -5,6 +5,8 @@ ee.Initialize()
 
 # Example:
 collection = ''
+description = ''
+folder = ''
 
 # Define the region of interest (ROI)
 roi = ee.Geometry.Rectangle([-180, -90, 180, 90])
@@ -27,8 +29,8 @@ print('First image:', first_image)
 # Export the image to Google Drive or download it locally
 export_task = ee.batch.Export.image.toDrive(
     image=first_image,
-    description='Oceanographic Dataset',
-    folder='Google Earth Extract',
+    description=description,
+    folder=folder,
     scale=1000,
     region=roi
 )
