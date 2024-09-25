@@ -28,3 +28,6 @@ The Prophet model is a time series forecasting model developed by Facebook's Cor
 To explore the Prophet model implementation, navigate to the `prophet.py` script and open the script.
 
 Feel free to dive into each script to understand the inner workings of these models and how they are applied to the fishing prediction problem.
+
+# NIXTLA's Models
+[Nixtla's TimeGPT](https://github.com/Nixtla/nixtla) is a production ready, generative pretrained transformer for time series.
