@@ -23,3 +23,19 @@ class TimeSeriesForecaster:
 # forecaster.fit(df, target_column='your_target_column', time_column='your_time_column')
 # forecast = forecaster.predict(periods=10)
 # print(forecast)
+
+if __name__ == "__main__":
+    # Load your time series data
+    df = pd.read_csv('/path/to/your_time_series_data.csv')
+    
+    # Initialize the forecaster
+    forecaster = TimeSeriesForecaster()
+    
+    # Fit the model
+    forecaster.fit(df, target_column='your_target_column', time_column='your_time_column')
+    
+    # Predict future values
+    forecast = forecaster.predict(periods=10)
+    
+    # Print the forecast
+    print(forecast)
