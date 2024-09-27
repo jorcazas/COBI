@@ -1,11 +1,69 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from models.model import Model
+
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_squared_error
 from mango import scheduler, Tuner
 
 root = "path_to_data/"
+
+
+class ARIMA(Model):
+    def __init__(self):
+        super().__init__()
+
+    def train(self, data, labels):
+        """
+        Train the ARIMA model with the provided data and labels.
+
+        :param data: Training data
+        :param labels: Training labels
+        """
+        # Fit an ARIMA model
+        order = (1, 0, 2)
+        self.model = ARIMA(data, order=order)
+        self.model_fit = self.model.fit()
+
+        self.trained = True
+        print("Model trained with data")
+
+    def predict(self, data):
+        """
+        Make predictions with the ARIMA model on the provided data.
+
+        :param data: Data to make predictions on
+        :return: Predictions
+        """
+        if not self.trained:
+            raise Exception("Model must be trained before making predictions")
+
+        # Make predictions
+        predictions = self.model_fit.forecast(steps=len(data))
+
+        print("Predictions made on data")
+        return predictions
+
+    def evaluate(self, data, labels):
+        """
+        Evaluate the ARIMA model with the provided data and labels.
+
+        :param data: Evaluation data
+        :param labels: Evaluation labels
+        :return: Evaluation metrics
+        """
+        if not self.trained:
+            raise Exception("Model must be trained before evaluation")
+
+        # Make predictions
+        predictions = self.model_fit.forecast(steps=len(data))
+
+        # Calculate RMSE to evaluate the model
+        rmse = np.sqrt(mean_squared_error(labels, predictions))
+
+        print("Model evaluated on data")
+        return rmse
 
 
 def main():
