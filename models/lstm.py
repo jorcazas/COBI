@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
+from model import Model
+
 import tensorflow as tf
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Dropout
@@ -13,6 +15,52 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint
 from wandb.keras import WandbMetricsLogger
 import wandb
 import pickle
+
+class LSTM(Model):  
+    def __init__(self):
+        super().__init__()
+
+    def train(self, data, labels):
+        """
+        Train the model with the provided data and labels.
+        
+        :param data: Training data
+        :param labels: Training labels
+        """
+        # Implement training logic here
+        self.trained = True
+        print("Model trained with data")
+
+    def predict(self, data):
+        """
+        Make predictions with the model on the provided data.
+        
+        :param data: Data to make predictions on
+        :return: Predictions
+        """
+        if not self.trained:
+            raise Exception("Model must be trained before making predictions")
+        
+        # Implement prediction logic here
+        predictions = [0] * len(data)  # Dummy predictions
+        print("Predictions made on data")
+        return predictions
+
+    def evaluate(self, data, labels):
+        """
+        Evaluate the model with the provided data and labels.
+        
+        :param data: Evaluation data
+        :param labels: Evaluation labels
+        :return: Evaluation metrics
+        """
+        if not self.trained:
+            raise Exception("Model must be trained before evaluation")
+        
+        # Implement evaluation logic here
+        accuracy = 0.0  # Dummy accuracy
+        print("Model evaluated on data")
+        return accuracy
 
 
 def load_and_preprocess_data(root):
