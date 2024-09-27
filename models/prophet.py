@@ -1,6 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from model.model import Model
+
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_squared_error
 from prophet import Prophet
@@ -9,6 +11,11 @@ from mango.tuner import Tuner
 from mango.domain.distribution import loguniform
 
 root = "path_to_data"
+
+class Prophet(Model):
+    def __init__(self):
+        super().__init__()
+
 
 
 def main():
