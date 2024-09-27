@@ -1,6 +1,7 @@
 class Model:
     def __init__(self):
         self.trained = False
+        self.loss_function = None
 
     def train(self, data, labels):
         """
